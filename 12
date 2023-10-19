@@ -1,0 +1,63 @@
+g=float(input("Specific weight of soil (γ)(kN\m\u00b3):"))
+c=float(input("Cohesion of the soil (c)(kN\m\u00b3)"))
+phi=int(input("Angle of friction (Φ):"))
+fos=float(input("Factor of safety (FOS) :"))
+DF=float(input("Depth of fondation(M) :"))
+deg=[0,5,10,15,20,25,30,34,35,40,45,48,50]
+nc=[5.7,7.3,9.6,12.9,17.7,25.1,37.2,52.6,57.8,95.7,172.3,258.3,347.5]
+nq=[1,1.6,2.7,4.4,7.4,12.7,22.5,36.5,41.4,81.3,173.3,287.9,415.1]
+ng=[0.0,0.5,1.2,2.5,5.0,9.7,19.7,36.0,42.4,100.4,297.5,780.1,1153.2]
+Angle_of_friction = phi
+if Angle_of_friction in deg :
+index = deg.index(Angle_of_friction)
+else:
+print(f"{Angle_of_friction} not standard value for Angle of internal friction
+Nc = nc[index]
+Nq = nq[index]
+Ng = ng[index]
+print("\n")
+print(f"value of correction factor ")
+print(f"Φ={phi}")
+print("Nc=",Nc)
+print("Nq=",Nq)
+print("Nγ =",Ng)
+print("\n")
+print("Type of Footing")
+print("1.Strip Footing")
+print("2.Round Footing")
+print("3.Square Footing")
+print("4.Rectangle Footing")
+print("\n")
+T=int(input("Enter number of Footing :"))
+if T==1:
+sc=1.0
+sg=1.0
+elif T==2:
+sc=1.3
+sg=0.6
+elif T==3: 
+sc=1.3
+sg=0.8
+elif T==4:
+print("\n")
+B=float(input("width (B) of rectangular footing :"))
+L=float(input("Length(L) of rectangular footing :"))
+sc=(1+(0.3*B)/L)
+sg=(1-(0.2*B)/L)
+else :
+print("Enter Correct number ")
+# Ultimate bearing capacity,
+Qnu=(c*Nc*sc)+(g*DF*Nq)+(0.5*g*B*Ng*sg)
+# Net ultimate bearing capacity
+Qnf=Qnu-(g*DF)
+#net safe bearing capacity
+Qns=(Qnf/fos)
+# safe bearing capacity
+Qs=Qns+(g*DF)
+print("\n")
+print("RESULT")
+print("1.Ultimate bearing capacity :",round(Qnu,2),"(kN\m\u00b3):")
+print("2.Net Ultimate bearing capacity :",round(Qnf,2),"(kN\m\u00b3):")
+print("3.Net safe bearing capacity :",round(Qns,2),"(kN\m\u00b3):")
+print("4.Safe bearing capacity :",round(Qs,2),"(kN\m\u00b3):")
+print("4.Safe bearing capacity :",round(Qs,2),"(kN\m\u00b3):")
