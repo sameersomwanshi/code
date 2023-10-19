@@ -1,0 +1,20 @@
+A=float(input("Enter the length of footing in m ="))
+B=float(input("Enter the breadth of footing in m ="))
+hc=float(input("Enter the height of footing in m ="))
+a=float(input("Enter the length of truncated portion in m ="))
+b=float(input("Enter the breadth of truncated portion in m ="))
+ht=float(input("Enter the height of truncated portion in m ="))
+
+Vc=A*B*hc #Vc=Volume of Truncated Portion
+print(Vc)
+Vt=(ht/3)*((A*B)+(a*b)+((A*B)*(a*b))**0.5)
+print(Vt)
+Vw=Vc+Vt #Volume of wet concrete = Vw
+print(Vw)
+Vd=1.54*Vw #Volume of dry concrete = Vd
+print(Vd)
+
+print("Volume of cuboidal section = {} meter cube" .format(Vc))
+print("Volume of Truncated section = {} meter cube" .format(Vt))
+print("Volume of wet section = {} meter cube" .format(Vw))
+print("Volume of dry section = {} meter cube" .format(Vd))
