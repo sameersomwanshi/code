@@ -1,0 +1,31 @@
+P=float(input("Enter the design the wheel load in kg="))
+h=float(input("Enter the concrete pavement of thickness in cm="))
+Fs=float(input("Enter the permissible stress in shear in kg per cm sq.="))
+Fb=float(input("Enter the bending in kg per cm sq.="))
+Ff=float(input("Enter the bearing stress in kg per cm sq.="))
+d=float(input("Enter the diameter in cm="))
+Delta=float(input("Enter the joint width in cm="))
+l=float(input("Enter the raidus of relative stiffness="))
+
+R=(25*(d*d))*(Ff/Fb)
+print(R)
+
+Ld=float(input("Enter the length of dowel bar embedded in slab in cm="))
+R1=(Ld*Ld)*((Ld+(8.8*Delta))/(Ld+(1.5*Delta)))
+print(R1)
+
+diff=0.01
+while diff <= 0.01 :
+ R1=(Ld**3+8.8*Delta*Ld**2)/(Ld+1.5*Delta)
+ diff=(R-R1)
+ print("R1={},diff={},Ld={}".format(R1,diff,Ld))
+ Ld=Ld-0.05
+print("minimum lengthof dowel bar , Ld={} cm".format(Ld+Delta+0.05))
+
+print("\n")
+Ps=0.785*d**2*Fs
+Pf=(2*d**3*Ff)/(Ld+8.8*Delta)
+Pb=(Fb*Ld*2*d)/(12.5*(Ld+1.5*Delta))
+print("Load transfer capacity of single dowel bar in shear (Ps) :", Ps,"kg")
+print("Load transfer capacity of single dowel bar in bending (Pf) :", Pf,"kg")
+print("Load transfer capacity of single dowel bar in bearing (Pb) :", Pb,"kg")
