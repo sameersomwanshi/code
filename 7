@@ -1,0 +1,24 @@
+import math
+### formulae
+Mu=float(input("Bending Moment (N.mm):"))
+fck=float(input("Grade of concrete (MPa):"))
+fy=float(input("Grade of steel (MPa) :"))
+de=float(input("Effective depth of slab (mm) :"))
+db float(input("Diameter of bar (mm) :"))
+
+### formula for area of main reinforcement
+Ast=float(0.50*fck/fy)*(1-math.sqrt(1-4.6*Mu/(fck*1000*d**2)))*1000*d
+Astmin=(0.0012*1000 d)
+print("Result :")
+if Ast<Astmin :
+print("Area of reinforcement calculated is less than the permissible limit of", Astin, "sq.mm")
+print("Area of reinforcement to be provided", Astmin, "sq.mm")
+else:
+print("Area of reinforcement (Ast) = ", round(Ast,2),"sq.m")
+Sp=((3.14*db**2/4)/Ast) *1000
+print ("Spacing of", db, "mm bars", round (Sp, 0)," mm")
+if Sp>350:
+print ("Spacing exceeds permissible limit of 350 mm")
+print("Provide", db," mm bars at 350 mm c/c")
+elif Sp<=350:
+print("Provide", db," mm bars at", round (Sp, 0), "mm c/c")
