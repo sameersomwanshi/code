@@ -1,0 +1,26 @@
+S=float(input("Enter span of truss in m ="))
+H=float(input("Enter height of truss in m ="))
+N=float(input("Enter no. of panels "))
+Se=float(input("Enter span of each panel "))
+PA=float(input("Enter vertical point load at point A in kN ="))
+PB=float(input("Enter vertical point load at point B in kN ="))
+PC=float(input("Enter vertical point load at point C in kN ="))
+PD=float(input("Enter vertical point load at point D in kN ="))
+PE=float(input("Enter vertical point load at point E in kN ="))
+PF=float(input("Enter vertical point load at point F in kN ="))
+PG=float(input("Enter vertical point load at point G in kN ="))
+PH=float(input("Enter vertical point load at point H in kN ="))
+PI=float(input("Enter vertical point load at point I in kN ="))
+PJ=float(input("Enter vertical point load at point J in kN ="))
+PK=float(input("Enter vertical point load at point K in kN ="))
+PL=float(input("Enter vertical point load at point L in kN "))
+
+import math
+A=math.atan(H/(0.5*S))
+print("Angle at A= {}".format(A))
+
+RL=((PB+PC) *Se+ (PD+PE) *2*Se+(PF+PG)*3*Se+(PH+PI) *4*Se+(PJ+PK)*5*Se)/S
+print("Support reaction at LRL= {} KN (upward)".format(RL))
+
+RA=(PB+PC+PD+PE+PF+PG+PH+PI+PJ+PK)-RL
+print("Reaction at A is RA= {} kN (upward) ".format(RA))
