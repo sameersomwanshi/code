@@ -1,0 +1,21 @@
+Q=float(input("Enter the Bucket Capacity in cu.ya ="))
+f=float(input("Enter the Earth volume conversion factor from loose to bank ="))
+k=float(input("Enter the Bucket fill factor ="))
+S=float(input("Enter the Angle of Swing in degree  ="))
+n=float(input("Enter the Job efficiency ="))
+Tc=float(input("Enter the Cycle time in sec ="))
+Dh=float(input("Enter the digging height in m ="))
+Ch=float(input("Enter the average height of cut in m="))
+Oh=float(input("Enter the optimum height of cut in m="))
+
+Q1=Q*0.76
+print(Q1)
+
+#Percentage of optimum height cut = POh
+POh=(Ch/Oh)*100
+print(POh)
+
+#Depth swing factor from table 2.2 (f1)=0.81
+f1=0.81
+P=(3600*Q1*f*k*f1*n)/Tc
+print(P)
