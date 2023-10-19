@@ -1,0 +1,26 @@
+import math
+SG=float(input("specific gravity of particle : "))
+D=float(input("Dimater of particle : "))
+### STANDARD VALUE OF CONSTANT
+g=9.8 ##(acceleration of gravity in m2/s)
+p=1000 ##(mass density of the water in kg/m3)
+u=0.0001 ##(dyanamic viscosity of the water in pascal.second)
+# mass density of the given particle
+p1=SG*p
+if D<=0.1 :
+Vs1=(9/18)*((p1-p)/u)*D**2
+print("settling velosity of suspended solids : " , round(Vs1,2))
+elif D>1 :
+Vs2=math.sqrt(3.33*g*((p1-p)/p)*D)
+print("settling velosity of suspended solids : " , round(Vs2,2))
+else : 
+T=float(input("Enter Temperature : "))
+# approximate settling velocity
+Vs4=418*(SG-1)*D**2*((3*T+70)/100)
+# Reynold's Number
+R=((p*Vs4*D)/u)
+# drag coefficint
+Cd=(24/R)+(3/math.sqrt(R))+0.34
+# Transition flow formula
+Vs3=math.sqrt((4/3)*(g/Cd)*((p1-p)/p)*D)
+print("settling velocity of suspended solids : " , round(Vs3,2))
