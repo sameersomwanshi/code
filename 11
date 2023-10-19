@@ -1,12 +1,14 @@
-Q=float(input("Enter Concentreated load in KN="))
-Sigmaz=float (input("Enter value of vertical normal stress in kN/sq.m-"))
+Q=float(input("Enter Concentrated load in kN = "))
+sigma_Z=float(input("Enter the value of vertical normal stress in kPa = "))
 
 
-z = 0.1
-zmax=(0.4775*Q/Sigmaz)**0.5
-print("Maximum depth to which Signaz= {} kPa exists = zmax = {} m".format{Sigmaz
-while(z<=zmax):
-z = z + 0.1
-r=z*(((((0.4775*Q)/(Sigmaz*z*z))**0.4)-1)**0.5)
-print("z = {} m; r = {} m ".format(z, r))
+Zmax=((0.4775*Q)/sigma_Z)**0.5
+print("Maximum Depth in meter = Zmax = {} " .format(Zmax))
 
+
+r=0
+Z=0
+while(Z<Zmax):
+Z=Z+0.1
+r=(((((0.4775*Q)/(sigma_Z*Z**2))**0.4)-1)**0.5)*Z
+print("Z = {} m , r = {} " .format(Z,r))
