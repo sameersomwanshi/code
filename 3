@@ -1,0 +1,20 @@
+ K=float(input("Enter Hydraulic conductivity of aquifier in m/s="))
+ B=float(input("Enter thinkness of confined aquifier in m="))
+ S1=float(input("Enter drawdown of first well in m="))
+ S2=float(input("Enter drawdown of second well in m="))
+ r1=float(input("Enter radial distance of first well from pumping well in m="))
+ r2=float(input("Enter radial distance of second well from pumping well in m="))
+
+
+ a=(r2/r1)
+ import math
+ b=math.log(a)
+ Q=(2*3.14*K*B*(S1-S2))/b
+ print(Q)
+
+print("Steady state discharge = {} cu.m per second ".format(Q))
+
+Q1=Q*1000*60
+print(Q1)
+
+print("Steady state discharge = {} lit per min ".format(Q1))
