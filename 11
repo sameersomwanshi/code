@@ -1,0 +1,12 @@
+Q=float(input("Enter Concentreated load in KN="))
+Sigmaz=float (input("Enter value of vertical normal stress in kN/sq.m-"))
+
+
+z = 0.1
+zmax=(0.4775*Q/Sigmaz)**0.5
+print("Maximum depth to which Signaz= {} kPa exists = zmax = {} m".format{Sigmaz
+while(z<=zmax):
+z = z + 0.1
+r=z*(((((0.4775*Q)/(Sigmaz*z*z))**0.4)-1)**0.5)
+print("z = {} m; r = {} m ".format(z, r))
+
